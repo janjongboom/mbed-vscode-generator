@@ -60,3 +60,9 @@ pyOCD is used as default. To use STLink instead:
 ```
 $ mbed-vscode-generator -m DISCO_L475VG_IOT01A --debugger stlink
 ```
+
+## Troubleshooting
+
+### Exporting to make_gcc_arm failed
+
+This tool relies on the `make_gcc_arm` exporter, which can be broken [for Mbed 2 projects](https://github.com/ARMmbed/mbed-os/issues/8415#issuecomment-503193777). Report a bug in the [Mbed OS project](https://github.com/ARMmbed/mbed-os/issues). Switching to an Mbed OS 5 project (e.g. [mbed-os-example-blinky](https://github.com/ARMmbed/mbed-os-example-blinky)) typically helps.
