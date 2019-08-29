@@ -371,11 +371,31 @@ console.log('');
                 "serverStarted": serverStarted,
                 "preLaunchTask": "Build Mbed OS application",
                 "setupCommands": [
-                    { "text": "-target-select remote " + remote, "description": "connect to target", "ignoreFailures": false },
-                    { "text": "-file-exec-and-symbols " + elfFile, "description": "load file", "ignoreFailures": false},
-                    { "text": "-interpreter-exec console \"monitor reset\"", "ignoreFailures": false },
-                    { "text": "-interpreter-exec console \"monitor halt\"", "ignoreFailures": false },
-                    { "text": "-target-download", "description": "flash target", "ignoreFailures": false }
+                    {
+                        "text": "-target-select remote " + remote,
+                        "description": "connect to target",
+                        "ignoreFailures": false
+                    },
+                    {
+                        "text": "-file-exec-and-symbols " + elfFile,
+                        "description": "load file",
+                        "ignoreFailures": false
+                    },
+                    {
+                        "text": "-interpreter-exec console \"monitor reset\"",
+                        "description": "reset monitor",
+                        "ignoreFailures": false
+                    },
+                    {
+                        "text": "-interpreter-exec console \"monitor halt\"",
+                        "description": "halt monitor",
+                        "ignoreFailures": false
+                    },
+                    {
+                        "text": "-target-download",
+                        "description": "flash target",
+                        "ignoreFailures": false
+                    }
                 ],
                 "logging": {
                     "moduleLoad": true,
@@ -399,12 +419,35 @@ console.log('');
                     "MIDebuggerPath": gdbPath,
                     "debugServerPath": debuggerPath,
                     "setupCommands": [
-                        { "text": "-environment-cd " + Path.dirname(elfFile) },
-                        { "text": "-target-select remote " + remote, "description": "connect to target", "ignoreFailures": false },
-                        { "text": "-file-exec-and-symbols " + programName + ".elf", "description": "load file", "ignoreFailures": false},
-                        { "text": "-interpreter-exec console \"monitor reset\"", "ignoreFailures": false },
-                        { "text": "-interpreter-exec console \"monitor halt\"", "ignoreFailures": false },
-                        { "text": "-target-download", "description": "flash target", "ignoreFailures": false }
+                        {
+                            "text": "-environment-cd " + Path.dirname(elfFile),
+                            "description": "go to right folder"
+                        },
+                        {
+                            "text": "-target-select remote " + remote,
+                            "description": "connect to target",
+                            "ignoreFailures": false
+                        },
+                        {
+                            "text": "-file-exec-and-symbols " + programName + ".elf",
+                            "description": "load file",
+                            "ignoreFailures": false
+                        },
+                        {
+                            "text": "-interpreter-exec console \"monitor reset\"",
+                            "description": "reset monitor",
+                            "ignoreFailures": false
+                        },
+                        {
+                            "text": "-interpreter-exec console \"monitor halt\"",
+                            "description": "halt monitor",
+                            "ignoreFailures": false
+                        },
+                        {
+                            "text": "-target-download",
+                            "description": "flash target",
+                            "ignoreFailures": false
+                         }
                     ]
                 }
             };

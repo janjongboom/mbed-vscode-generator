@@ -1,6 +1,6 @@
 {
   "name": "mbed-vscode-generator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generate VSCode intellisense and build configuration for Mbed OS",
   "main": "cli.js",
   "scripts": {
