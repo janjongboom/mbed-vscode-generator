@@ -262,7 +262,7 @@ console.log('');
             };
         }
 
-        let task = tasks.tasks.filter(c => c.command === 'mbed' && c.group === 'build')[0];
+        let task = (tasks.tasks || []).filter(c => c.command === 'mbed' && c.group === 'build')[0];
         if (!task) {
             // don't override below so the user can modify this
             task = {
