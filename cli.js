@@ -64,7 +64,12 @@ else {
     let configResp = childProcess.spawnSync('mbed', [ 'config', 'GCC_ARM_PATH' ], { cwd: program.inputDir });
 
     if (configResp.status === 0) {
-        gccArmPath = Path.join(configResp.stdout.toString('utf-8').replace(/^\[mbed\] /, '').trim(), 'arm-none-eabi-gcc');
+        if (process.platform === 'win32') {
+            gccArmPath = Path.join(configResp.stdout.toString('utf-8').replace(/^\[mbed\] /, '').trim(), 'arm-none-eabi-gcc.exe');
+        }
+        else {
+            gccArmPath = Path.join(configResp.stdout.toString('utf-8').replace(/^\[mbed\] /, '').trim(), 'arm-none-eabi-gcc');
+        }
 
         if (!fs.existsSync(gccArmPath)) {
             console.error(`    ✘ Could not find compiler. GCC_ARM_PATH set, but cannot find "${gccArmPath}"`);
