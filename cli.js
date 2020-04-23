@@ -191,6 +191,11 @@ console.log('');
         for (let includePathLine of makefileContent.filter(l => l.indexOf('INCLUDE_PATHS += -I') === 0)) {
             includePathLine = includePathLine.replace('INCLUDE_PATHS += -I', '');
             includePathLine = Path.resolve(Path.join(program.inputDir, 'mbed-os'), includePathLine);
+
+            if (includePathLine === Path.join(Path.resolve(program.inputDir), Path.resolve(program.inputDir), 'mbed-os')) {
+                continue;
+            }
+
             includePaths.push(includePathLine);
         }
 
