@@ -245,7 +245,7 @@ console.log('');
         let config = cppProp.configurations.filter(c => c.name === 'Mbed')[0];
         if (!config) {
             // don't override below so the user can modify this
-            config = { name: 'Mbed', cStandard: 'c99', cppStandard: 'c++03', intelliSenseMode: 'gcc-x64' };
+            config = { name: 'Mbed', cStandard: 'gnu11', cppStandard: 'c++14', intelliSenseMode: 'gcc-x64' };
             cppProp.configurations.push(config);
         }
 
